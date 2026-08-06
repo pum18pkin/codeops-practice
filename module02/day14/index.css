@@ -1,0 +1,156 @@
+
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+:root{
+    --background:#f8f4ed;
+    --white:#ffffff;
+    --text:#333333;
+    --border:#d9d9d9;
+    --gold:#d4af37;
+    --hover:#f4ead0;
+    --stripe:#f6f6f6;
+}
+
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.6;
+    background:var(--background);
+    color:var(--text);
+}
+
+
+.page{
+    min-height:100vh;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+}
+
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--white);
+    padding:15px 40px;
+    position:sticky;
+    top:0;
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+
+.logo{
+    font-size:2rem;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+
+main{
+    padding:40px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+
+.menu-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-top:6px solid var(--gold);
+    border-radius:8px;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.menu-card:hover{
+    background:var(--hover);
+    transform:translateY(-5px);
+}
+
+.menu-card img{
+    width:100%;
+    border-radius:6px;
+    margin:15px 0;
+}
+
+.price{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:var(--gold);
+
+    margin-top:auto;
+}
+
+.price::before{
+    content:"ETB ";
+}
+
+
+.badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:var(--gold);
+    color:var(--white);
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:.8rem;
+    font-weight:bold;
+}
+
+
+
+.ingredients{
+    list-style-position:inside;
+    margin-top:15px;
+}
+
+.ingredients li{
+    padding:8px;
+}
+
+.ingredients li:nth-child(even){
+    background:var(--stripe);
+}
+
+
+footer{
+    text-align:center;
+    padding:20px;
+}
