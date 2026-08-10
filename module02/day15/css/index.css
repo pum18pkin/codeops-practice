@@ -47,16 +47,22 @@ body{
     top:0;
     z-index:1000;
 }
-
+.navbar div img{
+    display:block;
+    border-radius:50%;
+}
 .logo{
     font-size:2rem;
-    
 }
 
 .nav-links{
-    display:flex;
+    display:block;
     list-style:none;
     gap:25px;
+    margin: auto 0;
+    border-radius:8px solid;
+    padding:10px 20px;
+    background-color: #f7f1db;
 }
 
 .nav-links a{
