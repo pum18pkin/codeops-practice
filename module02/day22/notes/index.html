@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Currency Converter</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Convert currencies using live exchange rates.</p>
+
+        <section class="converter-card">
+
+            <div class="input-group">
+                <label for="amount">Amount IN ETB </label>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount in ETB"
+                    min="0"
+                    step="any"
+                >
+            </div>
+
+            <div class="currency-row">
+
+                <div class="input-group">
+                    <label for="toCurrency">Convert ETB to </label>
+
+                    <select id="toCurrency">
+                        <option value="">Loading currencies</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button id="convertBtn">Convert</button>
+            <div class="btn-row">
+                <button id="reverseBtn">Reverse</button>
+                <button id="refreshBtn">Refresh</button>
+            </div>
+
+            <p id="status"></p>
+
+            <div id="result" class="result">
+                <span>Converted amount</span>
+                <strong id="convertedAmount">—</strong>
+            </div>
+            <p class="updated">last updated: <span id="lastUpdated"></span></p>
+
+        </section>
+
+        <section class="watchlist-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Watchlist</h2>
+                    <p>Keep track of currencies you care about.</p>
+                </div>
+            </div>
+
+            <div id="watchlist" class="watchlist">
+                <p class="empty-message">Your watchlist is empty.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+</body>
+<script src="../js/index.js"></script>
+
+</html>
