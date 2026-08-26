@@ -1,0 +1,8 @@
+.foodList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.listes{
+    background-color: blanchedalmond;
+    margin: 20px;
+}

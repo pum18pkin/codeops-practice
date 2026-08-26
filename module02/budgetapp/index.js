@@ -1,27 +1,28 @@
+// shows the browser where to save the transactions 
 const STORAGE_KEY = "birrBudgetTransactions"; 
-//loads transactions 
-function loadTransactions() {
+//loads transactions that were already saved 
+function loadTransactionHist() {
 const data = localStorage.getItem(STORAGE_KEY);
     if (data) {
         return JSON.parse(data);
     }
     return [];
-}
+}// saves the transactions 
 function saveTransactions(transactions) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
-}
+}// function for the add to transactions button 
 function addTransaction(transaction) {
-    const transactions = loadTransactions();
+    const transactions = loadTransactionHist();
     transactions.push(transaction);
     saveTransactions(transactions);
-}
+} // for the function of the delete button
 function deleteTransaction(id) {
-    const transactions = loadTransactions();
+    const transactions = loadTransactionHist();
     const updated = transactions.filter(function (t) {
         return t.id !== id;
     });
     saveTransactions(updated);
-}
+}// it calculates the total for each type of transaction 
 function calculateTotals(transactions) {
     const totalIncome = transactions
         .filter(function (t) {
@@ -43,7 +44,7 @@ function calculateTotals(transactions) {
         totalExpenses: totalExpenses,
         balance: balance,
     };
-}
+}// make the input in the format of money 
 function formatBirr(amount) {
     return "ETB " + amount.toLocaleString("en-US", {
         minimumFractionDigits: 2,
@@ -54,13 +55,13 @@ function formatDate(dateString) {
     const date = new Date(dateString + "T00:00:00");
     const options = { year: "numeric", month: "short", day: "numeric" };
     return date.toLocaleDateString("en-US", options);
-}
+}// calculates the amount of money for each type and puts the formated amout in the respective table 
 function renderDashboard(transactions) {
     const totals = calculateTotals(transactions);
     document.getElementById("total-income").textContent = formatBirr(totals.totalIncome);
     document.getElementById("total-expenses").textContent = formatBirr(totals.totalExpenses);
     document.getElementById("current-balance").textContent = formatBirr(totals.balance);
-}
+}// creates the transaction history table 
 function renderTransactions(transactions) {
     const tableBody = document.getElementById("transaction-list");
     const emptyMessage = document.getElementById("empty-message");
@@ -91,20 +92,20 @@ row.innerHTML =
         tableBody.appendChild(row);
     });
 }
-
+// updates the income, outcome and current balance tables  
 function render() {
-    const transactions = loadTransactions();
+    const transactions = loadTransactionHist();
     renderDashboard(transactions);
     renderTransactions(transactions);
-}
+}// creates id for each transaction
 function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
-}
+} // it treates the input as a text
 function escapeHTML(str) {
     const div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-}
+}// sets the current date
 function setDefaultDate() {
     const dateInput = document.getElementById("date");
     const today = new Date();
@@ -112,7 +113,7 @@ function setDefaultDate() {
     const month = String(today.getMonth() + 1).padStart(2, "0");
     const day = String(today.getDate()).padStart(2, "0");
     dateInput.value = year + "-" + month + "-" + day;
-}
+} // handles the form submittion 
 function handleFormSubmit(event) {
     event.preventDefault();
     const type = document.getElementById("type").value;
