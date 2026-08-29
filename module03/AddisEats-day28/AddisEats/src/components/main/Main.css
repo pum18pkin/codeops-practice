@@ -1,0 +1,15 @@
+.products {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 24px;
+  background: #f7f6f2;
+  flex: 1;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
