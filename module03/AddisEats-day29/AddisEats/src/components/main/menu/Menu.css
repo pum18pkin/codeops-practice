@@ -1,0 +1,167 @@
+.menu {
+  width: 100%;
+  text-align: left;
+}
+
+/* Category filter buttons */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.category-btn {
+  padding: 8px 18px;
+  border: 1px solid #d8d6da;
+  border-radius: 999px;
+  background: #fff;
+  color: #444;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-btn:hover {
+  border-color: #e8a33d;
+  color: #1f2a2a;
+}
+
+.category-btn.active {
+  background: #1f2a2a;
+  border-color: #1f2a2a;
+  color: #fff;
+}
+
+/* Card grid */
+.foodList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e4e7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Dish contents */
+.dish-image {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.dish-image-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9a9a9a;
+  letter-spacing: 0.3px;
+  padding: 0 10px;
+}
+
+.dish-body {
+  padding: 12px 14px 0;
+  flex: 1;
+}
+
+.namu {
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2a2a;
+  margin: 0 0 6px;
+}
+
+.dish-spicy {
+  display: inline-block;
+  font-size: 12px;
+  color: #d64545;
+  background: #fdecec;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.dish-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 14px;
+}
+
+.dish-price {
+  font-weight: 700;
+  color: #4a7c59;
+  font-size: 15px;
+}
+
+.dish-add {
+  background: #e8a33d;
+  border: none;
+  color: #1f2a2a;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.dish-add:hover {
+  background: #f0b455;
+}
+
+/* Quantity stepper */
+.dish-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dish-qty button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d8d6da;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.dish-qty button:hover {
+  border-color: #e8a33d;
+  background: #fef3e2;
+}
+
+.dish-qty span {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Loading / error states for the fetched menu */
+.menu-status {
+  padding: 24px 0;
+  font-size: 1.05rem;
+  color: #6b7280;
+}
+
+.menu-error {
+  color: #b91c1c;
+}
